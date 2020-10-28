@@ -3,4 +3,30 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+  <div style="text-align:center">  
+    <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px;">  
+      <div class="card-header" style="font-weight:bold; font-size:x-large;">  
+        NT news feed 
+      </div>  
+    <div class="card-body">  
+    <div class="table-responsive" style="max-height:385px;">  
+      <table class="table mb-0" *ngIf="latestArticles && latestArticles.length>0">  
+        <thead>  
+          <tr>
+            <th>News article</th>  
+            <th>Published Date</th>  
+          </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let article of latestArticles">    
+            <td style="text-align:left;"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>   
+            <td>{{ article.pubDate }}</td>   
+          </tr>  
+        </tbody>  
+      </table>  
+    </div>  
+    </div>  
+    </div>  
+  </div>  
+  <router-outlet></router-outlet>
 </body>
