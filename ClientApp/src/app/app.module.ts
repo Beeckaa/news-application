@@ -5,14 +5,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { CounterComponent } from './counter/counter.component';
+import { NTComponent } from './NT/NT.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    CounterComponent,
+    NTComponent,
     FetchDataComponent
   ],
   imports: [
@@ -20,7 +20,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'counter', component: CounterComponent },
+      { path: 'NT', component: NTComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],

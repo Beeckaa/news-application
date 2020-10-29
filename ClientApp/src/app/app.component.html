@@ -9,7 +9,7 @@
         News feed 
       </div>  
     <div class="card-body">  
-    <div class="table-responsive" style="max-height:385px;">  
+    <div class="table-responsive" style="max-height:500px;">  
       <table class="table mb-0" *ngIf="latestArticles && latestArticles.length>0">  
         <thead>  
           <tr>
@@ -20,11 +20,19 @@
           </tr>  
         </thead>  
         <tbody>  
-          <tr *ngFor="let article of latestArticles">    
-            <td style="text-align:left;"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
-            <td [innerHTML]="article.content"></td>
-            <td>{{ article.pubDate }}</td>
-            <td>{{ article.source }}</td>   
+          <tr *ngFor="let article of latestArticles">
+            <ng-container *ngIf="currentRoute == '/NT' && article.source == 'Norrköping'">
+              <td style="text-align:left;"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
+              <td [innerHTML]="article.content"></td>
+              <td>{{ article.pubDate }}</td>
+              <td>{{ article.source }}</td>
+            </ng-container>
+            <ng-container *ngIf="currentRoute == '/'">
+              <td style="text-align:left;"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
+              <td [innerHTML]="article.content"></td>
+              <td>{{ article.pubDate }}</td>
+              <td>{{ article.source }}</td>
+            </ng-container>   
           </tr>  
         </tbody>  
       </table>  
