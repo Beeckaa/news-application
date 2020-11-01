@@ -1,44 +1,22 @@
 <body>
   <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-  <div style="text-align:center">  
-    <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px;">  
-      <div class="card-header" style="font-weight:bold; font-size:x-large;">  
-        News feed 
-      </div>  
-    <div class="card-body">  
-    <div class="table-responsive" style="max-height:500px;">  
-      <table class="table mb-0" *ngIf="latestArticles && latestArticles.length>0">  
-        <thead>  
-          <tr>
-            <th>News article</th>
-            <th>Description</th>  
-            <th>Published Date</th>  
-            <th>Source</th>
-          </tr>  
-        </thead>  
-        <tbody>  
-          <tr *ngFor="let article of latestArticles">
-            <ng-container *ngIf="currentRoute == '/NT' && article.source == 'Norrköping'">
-              <td style="text-align:left;"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
-              <td [innerHTML]="article.content"></td>
-              <td>{{ article.pubDate }}</td>
-              <td>{{ article.source }}</td>
-            </ng-container>
-            <ng-container *ngIf="currentRoute == '/'">
-              <td style="text-align:left;"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></td>
-              <td [innerHTML]="article.content"></td>
-              <td>{{ article.pubDate }}</td>
-              <td>{{ article.source }}</td>
-            </ng-container>   
-          </tr>  
-        </tbody>  
-      </table>  
-    </div>  
-    </div>  
-    </div>  
-  </div>  
+    <ng-container *ngFor="let article of latestArticles">
+      <div tabindex="0" class="e-card" id="basic" *ngIf="currentRoute == '/NT' && article.source == 'Norrköping'">
+        <div class="e-card-header">
+          <div class="e-card-header-caption">
+            <div class="e-card-title"><a href="{{ article.link }}" target="_blank">{{ article.source }} - {{ article.title }}</a> {{ article.pubDate }}</div>
+          </div>
+        </div>
+        <div class="e-card-content" [innerHTML]="article.content"></div>
+      </div>
+      <div tabindex="0" class="e-card" id="basic" *ngIf="currentRoute == '/'">
+        <div class="e-card-header">
+          <div class="e-card-header-caption">
+            <div class="e-card-title"><a href="{{ article.link }}" target="_blank">{{ article.source }} - {{ article.title }}</a> {{ article.pubDate }}</div>
+          </div>
+        </div>
+        <div class="e-card-content" [innerHTML]="article.content"></div>
+      </div>
+    </ng-container>
   <router-outlet></router-outlet>
 </body>

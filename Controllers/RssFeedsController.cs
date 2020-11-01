@@ -26,7 +26,7 @@ namespace news_application.Controllers  {
                                 select new {
                                     title = x.Element("title").Value,
                                     link = x.Element("link").Value,
-                                    pubDate = x.Element("pubDate").Value,
+                                    pubDate = Convert.ToDateTime(x.Element("pubDate").Value),
                                     description = x.Element("description").Value,
                                     source = x.Element("title").Value
                                 });

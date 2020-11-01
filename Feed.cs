@@ -5,14 +5,14 @@ namespace news_application {
         public string Link { get; set; }  
         public string Title { get; set; }   
         public string Content { get; set; }  
-        public string PubDate { get; set; }
+        public DateTime PubDate { get; set; }
         public string Source { get; set; }
   
         public Feed() {  
             Link = "";  
             Title = "";  
             Content = "";  
-            PubDate = "";
+            PubDate = DateTime.Today;
             Source = "";
         }
     }  
