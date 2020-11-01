@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { NTComponent } from './NT/NT.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     NTComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

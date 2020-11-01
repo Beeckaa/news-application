@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;  
 using System;  
-using System.Collections.Generic;  
-using System.Globalization;  
+using System.Collections.Generic;    
 using System.Linq;  
 using System.Xml.Linq;  
   
@@ -19,17 +18,19 @@ namespace news_application.Controllers  {
                 foreach (var url in rssFeedUrl) {
                     xDoc = XDocument.Load(url);
                     var source = (from item in xDoc.Descendants("channel")
-                                select new {
-                                    title = item.Element("title").Value
-                                });
+                        select new {
+                            title = item.Element("title").Value,
+                            link = item.Element("link").Value,
+                            description = item.Element("description")?.Value
+                        });
                     var items = (from x in xDoc.Descendants("item")
-                                select new {
-                                    title = x.Element("title").Value,
-                                    link = x.Element("link").Value,
-                                    pubDate = Convert.ToDateTime(x.Element("pubDate").Value),
-                                    description = x.Element("description").Value,
-                                    source = x.Element("title").Value
-                                });
+                        select new {
+                            title = x.Element("title").Value,
+                            link = x.Element("link").Value,
+                            pubDate = Convert.ToDateTime(x.Element("pubDate").Value),
+                            description = x.Element("description").Value,
+                            category = x.Element("category")?.Value
+                        });
                     if (items != null) {
                         foreach (var i in items) {
                             Feed f = new Feed {
@@ -37,7 +38,10 @@ namespace news_application.Controllers  {
                                 Link = i.link,
                                 PubDate = i.pubDate,
                                 Content = i.description,
+                                Category = i.category,
                                 Source = source.First().title,
+                                SourceLink = source.First().link,
+                                SourceDescription = source.First().description,
                             };
                             feeds.Add(f);
                         }

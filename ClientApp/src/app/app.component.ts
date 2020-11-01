@@ -29,5 +29,8 @@ interface Feed {
   title: string;
   content: string;
   pubDate: string;
+  category: string;
   source: string;
+  sourceLink: string;
+  sourceDescription: string;
 }

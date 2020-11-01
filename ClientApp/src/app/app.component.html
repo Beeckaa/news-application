@@ -4,7 +4,8 @@
       <div tabindex="0" class="e-card" id="basic" *ngIf="currentRoute == '/NT' && article.source == 'Norrköping'">
         <div class="e-card-header">
           <div class="e-card-header-caption">
-            <div class="e-card-title"><a href="{{ article.link }}" target="_blank">{{ article.source }} - {{ article.title }}</a> {{ article.pubDate }}</div>
+            <div class="e-card-title"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></div>
+            <p><a href="{{ article.sourceLink }}" target="_blank">{{ article.source }}</a> {{ article.pubDate }}</p>
           </div>
         </div>
         <div class="e-card-content" [innerHTML]="article.content"></div>
@@ -12,11 +13,14 @@
       <div tabindex="0" class="e-card" id="basic" *ngIf="currentRoute == '/'">
         <div class="e-card-header">
           <div class="e-card-header-caption">
-            <div class="e-card-title"><a href="{{ article.link }}" target="_blank">{{ article.source }} - {{ article.title }}</a> {{ article.pubDate }}</div>
+            <div class="e-card-title"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></div>
+            <p><a href="{{ article.sourceLink }}" target="_blank">{{ article.source }}</a> {{ article.pubDate }}</p>
           </div>
         </div>
         <div class="e-card-content" [innerHTML]="article.content"></div>
+        <p *ngIf="article.category != ''">{{ article.category }}</p>
       </div>
     </ng-container>
   <router-outlet></router-outlet>
+  <app-footer></app-footer>
 </body>
