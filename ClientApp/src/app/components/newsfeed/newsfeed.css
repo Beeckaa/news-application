@@ -1,0 +1,25 @@
+.newsArticle {
+    max-width: 700px;
+    padding: 10px;
+    box-shadow: 0.5px 0.5px 3px #888888;
+    margin: auto;
+    margin-top: 65px;
+    margin-bottom: 20px;
+}
+
+.newsArticle ~ .newsArticle {
+    margin-top: auto;
+}
+
+.title {
+    font-size: 28px;
+}
+
+a {
+    color: #4c858a;
+}
+
+a:hover {
+    color: #8abdc2;
+    text-decoration: none;
+}

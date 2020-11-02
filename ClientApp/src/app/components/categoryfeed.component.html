@@ -7,6 +7,7 @@
         </div>
       </div>
       <div class="e-card-content" [innerHTML]="article.content"></div>
+      <p *ngIf="article.category != ''">Kategori: {{ article.category }}</p>
     </div>
     <div tabindex="0" class="e-card" id="basic" *ngIf="articlesSource == '/'">
       <div class="e-card-header">
@@ -16,6 +17,6 @@
         </div>
       </div>
       <div class="e-card-content" [innerHTML]="article.content"></div>
-      <p *ngIf="article.category != ''">{{ article.category }}</p>
+      <p *ngIf="article.category != ''">Kategori: {{ article.category }}</p>
     </div>
   </ng-container>

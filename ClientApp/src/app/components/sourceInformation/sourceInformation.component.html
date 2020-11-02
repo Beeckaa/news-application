@@ -1,0 +1,6 @@
+<ng-container *ngFor="let source of sources">
+    <div class="sourceInformation" *ngIf="currentSource != '/' && source.name === currentSource">
+      <h1>Här samlas nyheter från: <a href="{{ source.link }}" target="_blank">{{ source.name }}</a></h1>
+      <div class="content" [innerHTML]="source.description"></div>
+    </div>
+</ng-container>

@@ -21,7 +21,6 @@ namespace news_application.Controllers  {
                         select new {
                             title = item.Element("title").Value,
                             link = item.Element("link").Value,
-                            description = item.Element("description")?.Value
                         });
                     var items = (from x in xDoc.Descendants("item")
                         select new {
@@ -41,7 +40,6 @@ namespace news_application.Controllers  {
                                 Category = i.category,
                                 Source = source.First().title,
                                 SourceLink = source.First().link,
-                                SourceDescription = source.First().description,
                             };
                             feeds.Add(f);
                         }

@@ -1,0 +1,17 @@
+header {
+  background-color: #fff;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+a {
+  color: #4c858a;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}

@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { NewsfeedComponent } from './components/newsfeed.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { FooterComponent } from './footer/footer.component';
-import { SourceInformationComponent } from './components/sourceInformation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SourceInformationComponent } from './components/sourceInformation/sourceInformation.component';
 
 @NgModule({
   declarations: [
-    NavMenuComponent,
+    AppComponent,
+    HeaderComponent,
     NewsfeedComponent,
     SourceInformationComponent,
-    AppComponent,
-    FetchDataComponent,
     FooterComponent
   ],
   imports: [

@@ -1,16 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  color: #476268;
+}
 
-/* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #4c858a;
 }
 
-code {
-  color: #e01a76;
+.loader {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 8px solid #f1f1f1;
+  border-top: 8px solid  #4c858a;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 3s linear infinite;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

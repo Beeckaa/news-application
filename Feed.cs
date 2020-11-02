@@ -9,7 +9,6 @@ namespace news_application {
         public string Category { get; set; }
         public string Source { get; set; }
         public string SourceLink { get; set; }
-        public string SourceDescription { get; set; }
   
         public Feed() {  
             Link = "";  
@@ -19,7 +18,6 @@ namespace news_application {
             Category = "";
             Source = "";
             SourceLink = "";
-            SourceDescription = "";
         }
     }  
 }

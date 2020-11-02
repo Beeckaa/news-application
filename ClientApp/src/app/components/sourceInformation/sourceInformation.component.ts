@@ -15,11 +15,13 @@ export class SourceInformationComponent implements OnChanges {
     currentSource: string;
 
     constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
+        // Receiveing data from rss source
         http.get<Source[]>(baseUrl + 'api/rsssource').subscribe(result => {
             this.sources = result;
         }, error => console.error(error));
     }
 
+    // Sets the source depending on the current route
     ngOnChanges(changes: SimpleChanges): void {
         if (this.currentRoute === '/nt') {
             this.currentSource = 'Norrköping';
