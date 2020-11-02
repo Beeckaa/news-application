@@ -15,7 +15,7 @@ import { SourceInformationComponent } from './components/sourceInformation/sourc
     HeaderComponent,
     NewsfeedComponent,
     SourceInformationComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -25,6 +25,7 @@ import { SourceInformationComponent } from './components/sourceInformation/sourc
       { path: 'nt', component: SourceInformationComponent },
       { path: 'expressen', component: SourceInformationComponent },
       { path: 'svd', component: SourceInformationComponent },
+      { path:  'category/:categoryType', component: NewsfeedComponent}
     ])
   ],
   providers: [],
