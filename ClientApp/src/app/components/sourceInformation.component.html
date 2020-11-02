@@ -1,0 +1,10 @@
+<ng-container *ngFor="let source of sources">
+    <div tabindex="0" class="e-card" id="basic" *ngIf="currentSource != '/' && source.name === currentSource">
+      <div class="e-card-header">
+        <div class="e-card-header-caption">
+          <div class="e-card-title"><a href="{{ source.link }}" target="_blank">{{ source.name }}</a></div>
+        </div>
+      </div>
+      <div class="e-card-content" [innerHTML]="source.description"></div>
+    </div>
+  </ng-container>

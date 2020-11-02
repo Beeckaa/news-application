@@ -5,15 +5,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { NTComponent } from './NT/NT.component';
+import { NewsfeedComponent } from './components/newsfeed.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FooterComponent } from './footer/footer.component';
+import { SourceInformationComponent } from './components/sourceInformation.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
     NavMenuComponent,
-    NTComponent,
+    NewsfeedComponent,
+    SourceInformationComponent,
+    AppComponent,
     FetchDataComponent,
     FooterComponent
   ],
@@ -22,8 +24,9 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'NT', component: NTComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'nt', component: SourceInformationComponent },
+      { path: 'expressen', component: SourceInformationComponent },
+      { path: 'svd', component: SourceInformationComponent },
     ])
   ],
   providers: [],

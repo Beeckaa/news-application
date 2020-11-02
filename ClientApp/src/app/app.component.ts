@@ -9,7 +9,6 @@ import 'rxjs/add/operator/filter';
 })
 
 export class AppComponent {
-  latestArticles: Feed[] = [];
   currentRoute: string;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
@@ -17,20 +16,5 @@ export class AppComponent {
       .subscribe((navigationEnd: any) =>
         this.currentRoute = navigationEnd.url
       );
-
-    http.get<Feed[]>(baseUrl + 'api/rssfeeds').subscribe(result => {
-      this.latestArticles = result;
-    }, error => console.error(error));
   }
-}
-
-interface Feed {
-  link: string;
-  title: string;
-  content: string;
-  pubDate: string;
-  category: string;
-  source: string;
-  sourceLink: string;
-  sourceDescription: string;
 }
