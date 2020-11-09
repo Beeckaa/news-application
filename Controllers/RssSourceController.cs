@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;  
-using System;  
-using System.Collections.Generic;    
-using System.Linq;  
-using System.Xml.Linq;  
+/* RssSourceController is used to fetch channel data from rss feeds */
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
   
 namespace news_application.Controllers  {  
     [Route("api/[controller]")]  
@@ -17,12 +17,15 @@ namespace news_application.Controllers  {
                 XDocument xDoc = new XDocument();
                 foreach (var url in rssSourceUrl) {
                     xDoc = XDocument.Load(url);
+
+                    // Fetch channel data about the sources
                     var source = (from item in xDoc.Descendants("channel")
                         select new {
                             title = item.Element("title").Value,
                             link = item.Element("link").Value,
                             description = item.Element("description")?.Value
                         });
+
                     if (source != null) {
                         foreach (var i in source) {
                             Source s = new Source {

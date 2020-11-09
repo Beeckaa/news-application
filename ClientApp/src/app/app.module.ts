@@ -25,7 +25,7 @@ import { SourceInformationComponent } from './components/sourceInformation/sourc
       { path: 'nt', component: SourceInformationComponent },
       { path: 'expressen', component: SourceInformationComponent },
       { path: 'svd', component: SourceInformationComponent },
-      { path:  'category/:categoryType', component: NewsfeedComponent}
+      { path: 'category/:categoryType', component: NewsfeedComponent}
     ])
   ],
   providers: [],

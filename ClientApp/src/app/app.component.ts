@@ -11,6 +11,7 @@ export class AppComponent {
   currentRoute: string;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
+    // Recieve the navigationEnd from the url
     router.events.filter(event => event instanceof NavigationEnd)
       .subscribe((navigationEnd: any) =>
         this.currentRoute = navigationEnd.url

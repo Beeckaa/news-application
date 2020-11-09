@@ -33,7 +33,7 @@ export class NewsfeedComponent implements OnChanges {
                 this.articlesSource = 'SvD - Startsidan';
             } else if (this.currentRoute.startsWith('/category/')) {
                 this.articlesSource = '/';
-                this.articlesCategory = this.currentRoute.split('/').pop();
+                this.articlesCategory = decodeURI(this.currentRoute.split('/').pop());
             } else {
                 this.articlesSource = '/';
                 this.articlesCategory = '/';

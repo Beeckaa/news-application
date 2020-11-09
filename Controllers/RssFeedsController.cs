@@ -1,3 +1,4 @@
+/* RssFeedsController is used to fetch data from rss feeds */
 using Microsoft.AspNetCore.Mvc;  
 using System;  
 using System.Collections.Generic;    
@@ -17,11 +18,15 @@ namespace news_application.Controllers  {
                 XDocument xDoc = new XDocument();
                 foreach (var url in rssFeedUrl) {
                     xDoc = XDocument.Load(url);
+
+                    // Fetch channel data about the source
                     var source = (from item in xDoc.Descendants("channel")
                         select new {
                             title = item.Element("title").Value,
                             link = item.Element("link").Value,
                         });
+                    
+                    // Fetch item data for each article
                     var items = (from x in xDoc.Descendants("item")
                         select new {
                             title = x.Element("title").Value,
@@ -30,6 +35,7 @@ namespace news_application.Controllers  {
                             description = x.Element("description").Value,
                             category = x.Element("category")?.Value
                         });
+
                     if (items != null) {
                         foreach (var i in items) {
                             Feed f = new Feed {

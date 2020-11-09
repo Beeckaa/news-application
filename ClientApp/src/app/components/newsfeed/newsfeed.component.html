@@ -1,6 +1,6 @@
 <ng-container *ngFor="let article of latestArticles">
     <div class="newsArticle" *ngIf="articlesSource != '/' && article.source === articlesSource">
-      <a class="title" href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+      <a class="title" href="{{ article.link }}" target="_blank" [innerHTML]="article.title"></a>
       <p><a href="{{ article.sourceLink }}" target="_blank">{{ article.source }}</a> {{ article.pubDate }}</p>
       <div class="content" [innerHTML]="article.content"></div>
       <p *ngIf="article.category">Kategori: <a [routerLink]="['/category', article.category]">{{ article.category }}</a></p>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="newsArticle" *ngIf="articlesSource === '/' && article.category === articlesCategory">
-      <a class="title" href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+      <a class="title" href="{{ article.link }}" target="_blank" [innerHTML]="article.title"></a>
       <p><a href="{{ article.sourceLink }}" target="_blank">{{ article.source }}</a> {{ article.pubDate }}</p>
       <div class="content" [innerHTML]="article.content"></div>
       <p *ngIf="article.category">Kategori: <a [routerLink]="['/category', article.category]">{{ article.category }}</a></p>
